@@ -22,3 +22,10 @@
 
 **Factorial**
 - Factorial! [factorial.py](https://github.com/jabhax/python-data-structures-and-algorithms/blob/master/factorial.py)
+
+**Fibonnaci**
+- Fibonnaci Sequence [fibonnaci.py](https://github.com/jabhax/python-data-structures-and-algorithms/blob/master/fibonnaci.py)
+
+**Sorting**
+- Bubble, Selection, Insertion, Merge, Quick [sorting.py](https://github.com/jabhax/python-data-structures-and-algorithms/blob/master/sorting.py)
+- Merge Sort on Arrays/Lists [mergesort_array.py](https://github.com/jabhax/python-data-structures-and-algorithms/blob/master/mergesort_array.py)
