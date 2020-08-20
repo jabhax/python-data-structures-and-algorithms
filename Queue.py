@@ -1,5 +1,4 @@
 ''' Queue Implementation '''
-import time
 from LinkedList import Node
 
 
@@ -39,13 +38,13 @@ class Queue:
 
     # Implement boolean check whether the Queue is empty.
     def is_empty(self):
-        return (self.first == None and self.length == 0)
+        return (self.first is None and self.length == 0)
 
     # Override default str() representation.
     def __str__(self):
         result = []
         curr = self.first
-        while curr != None:
+        while curr is not None:
             result.append(curr.value)
             curr = curr.next
         return str(result)

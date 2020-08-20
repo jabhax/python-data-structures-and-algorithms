@@ -2,7 +2,7 @@
 import time
 
 
-''' Node Object Implementation '''
+# Node Object Implementation
 class Node:
     # Constructor
     def __init__(self, v):
@@ -10,6 +10,8 @@ class Node:
         self.prev = None
         self.value = v
 
+
+# Doubly-Linked List Implementation
 class DoublyLinkedList:
     # Constructor
     def __init__(self, v):
@@ -33,7 +35,7 @@ class DoublyLinkedList:
         curr = self.head
         prev = curr
         pos = 0
-        while curr != None:
+        while curr is not None:
             if pos == i:
                 temp.next = curr
                 prev.next = temp
@@ -61,7 +63,7 @@ class DoublyLinkedList:
         curr = self.head
         prev = curr
         pos = 0
-        while curr != None:
+        while curr is not None:
             if pos == i:
                 curr.next.prev = prev
                 prev.next = curr.next
@@ -73,41 +75,46 @@ class DoublyLinkedList:
     def __str__(self):
         result = []
         curr = self.head
-        while curr != None:
+        while curr is not None:
             result.append(curr.value)
             curr = curr.next
         return str(result)
 
+
 # Main
 def main():
     # Test Append, Prepend methods
-    l = DoublyLinkedList(10)
-    print(f'[LinkedList] => Items(size={l.length}): {l}')
-    tt = 7 # truncate time decimale places by tt
+    DLL = DoublyLinkedList(10)
+    print(f'[LinkedList] => Items(size={DLL.length}): {DLL}')
+    tt = 10  # truncate time decimale places by tt
     for i in range(1, 5):
         # Time how long Append takes
         start = time.time()
-        l.append(i * 2)
+        DLL.append(i * 2)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [APPEND ({i * 2})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [APPEND ({i * 2})]'
+              f' => Items(size={DLL.length}): {DLL}')
         # Time how long Prepend takes
         start = time.time()
-        l.prepend(i * 3)
+        DLL.prepend(i * 3)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [PREPEND ({i * 3})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [PREPEND ({i * 3})]'
+              f' => Items(size={DLL.length}): {DLL}')
 
     # Test Insert, Remove methods
     for i in range(1, 5):
         # Time how long Insert takes
         start = time.time()
-        l.insert(l.length/2, i*10)
+        DLL.insert(DLL.length/2, i*10)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [INSERT: ({i * 10}, pos: {i})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [INSERT: ({i * 10}, pos: {i})]'
+              f' => Items(size={DLL.length}): {DLL}')
         # Time how long Remove takes
         start = time.time()
-        l.remove(i)
+        DLL.remove(i)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [REMOVE (pos: {i})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [REMOVE (pos: {i})]'
+              f' => Items(size={DLL.length}): {DLL}')
 
 
 if __name__ == '__main__':

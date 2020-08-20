@@ -2,16 +2,15 @@
 import time
 
 
-''' Node Object Implementation '''
-
+# Node Object Implementation
 class Node:
     # Constructor
     def __init__(self, v):
         self.next = None
         self.value = v
 
-''' Linked-List Implementation '''
 
+# Linked-List Implementation
 class LinkedList:
     # Constructor
     def __init__(self, v):
@@ -28,10 +27,11 @@ class LinkedList:
 
     # Insert Implementation
     def insert(self, v, i):
-        if i >= self.length: return
+        if i >= self.length:
+            return
         temp, curr, pos = Node(v), self.head, 0
         prev = curr
-        while curr != None:
+        while curr is not None:
             if pos == i:
                 temp.next = curr
                 prev.next = temp
@@ -56,7 +56,7 @@ class LinkedList:
         curr = self.head
         prev = curr
         pos = 0
-        while curr != None:
+        while curr is not None:
             # Remove by skipping over the pointer to the next node.
             if pos == i:
                 prev.next = curr.next
@@ -70,7 +70,7 @@ class LinkedList:
         curr = self.head
         next = curr.next
         self.tail = self.head
-        while (next != None):
+        while (next is not None):
             # swap pointers
             temp = next.next
             next.next = curr
@@ -84,7 +84,7 @@ class LinkedList:
     def __str__(self):
         result = []
         curr = self.head
-        while curr != None:
+        while curr is not None:
             result.append(curr.value)
             curr = curr.next
         return str(result)
@@ -93,37 +93,41 @@ class LinkedList:
 # Main
 def main():
     # Test Append, Prepend methods
-    l = LinkedList(10)
-    print(f'[LinkedList] => Items(size={l.length}): {l}')
-    tt = 7 # truncate time decimale places by tt
+    LL = LinkedList(10)
+    print(f'[LinkedList] => Items(size={LL.length}): {LL}')
+    tt = 10  # truncate time decimale places by tt
     for i in range(1, 5):
         start = time.time()
-        l.append(i * 2)
+        LL.append(i * 2)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [APPEND ({i * 2})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [APPEND ({i * 2})] '
+              f'=> Items(size={LL.length}): {LL}')
 
         start = time.time()
-        l.prepend(i * 3)
+        LL.prepend(i * 3)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [PREPEND ({i * 3})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [PREPEND ({i * 3})] '
+              f'=> Items(size={LL.length}): {LL}')
 
     # Test Insert, Remove methods
     for i in range(1, 5):
         start = time.time()
-        l.insert(l.length/2, i*10)
+        LL.insert(LL.length/2, i*10)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [INSERT: ({i * 10}, pos: {i})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [INSERT: ({i * 10}, pos: {i})]'
+              f' => Items(size={LL.length}): {LL}')
 
         start = time.time()
-        l.remove(i)
+        LL.remove(i)
         end = round(time.time() - start, tt)
-        print(f'Took ({end}s): [REMOVE (pos: {i})] => Items(size={l.length}): {l}')
+        print(f'Took ({end}s): [REMOVE (pos: {i})] '
+              f'=> Items(size={LL.length}): {LL}')
 
     # Test Reverse method
     start = time.time()
-    l.reverse()
+    LL.reverse()
     end = round(time.time() - start, tt)
-    print(f'Took ({end}s): [REVERSED] Items(size={l.length}): {l}')
+    print(f'Took ({end}s): [REVERSED] Items(size={LL.length}): {LL}')
 
 
 # Call main()

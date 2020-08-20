@@ -5,12 +5,13 @@ import time
 # Reverse a string iteratively using last index as starting point.
 # Stor in array and re-join back into a string.
 def reverse(s):
-  return ''.join([s[end] for end in range(len(s)-1, -1, -1)])
+    return ''.join([s[end] for end in range(len(s)-1, -1, -1)])
+
 
 # Recursively reverse a string, by taking first element and appending it to
 # the end of the <string> - <first element>
 def reverse_recursive(s):
-  return s[-1] if len(s) < 2 else reverse_recursive(s[1:]) + s[0]
+    return s[-1] if len(s) < 2 else reverse_recursive(s[1:]) + s[0]
 
 
 def main():

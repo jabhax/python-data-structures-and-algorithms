@@ -1,6 +1,6 @@
 ''' Stack Implementation '''
-import time
 from LinkedList import Node
+
 
 class Stack:
     def __init__(self):
@@ -33,22 +33,24 @@ class Stack:
         return old_top
 
     def is_empty(self):
-        return(self.top == None and self.length == 0)
+        return(self.top is None and self.length == 0)
 
     def __str__(self):
         result, curr = [], self.top
-        while curr != None:
+        while curr is not None:
             result.append(curr.value)
             curr = curr.next
         return str(result)
 
+
 def main():
     s = Stack()
     # Test Push Implementation
+    print('Pushing to stack...')
     for i in range(1, 6):
         s.push(i*2)
         print(s)
-
+    print('Popping from stack...')
     # Test Pop Implementation
     for i in range(6):
         s.pop()

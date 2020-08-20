@@ -9,6 +9,7 @@ class Node:
         self.right = None
         self.value = v
 
+
 # Binary Search Tree Implementation
 # Includes:
 # - Breadth-First-Search (BFS-Iterative)
@@ -46,7 +47,7 @@ class BST:
             return False
         curr = self.root
         while curr:
-            if v == curr.value :
+            if v == curr.value:
                 print('found')
                 return True
             elif v < curr.value:
@@ -58,52 +59,80 @@ class BST:
         else:
             return False
 
+    # Remove Implementation
     def remove(self, v):
-        if self.root == None:
+        if self.root is None:
             return False
         curr = self.root
         parent = None
-        while not curr == None:
-            if v == curr.value: # If we are at the remove node check its L and R children.
-                if curr.right == None: # If remove node has no right child check local parent.
-                    if parent == None: # If no local parent set, then point root to the curr node's left child.
+        while curr is not None:
+            # If we are at the remove node check its L and R children.
+            if v == curr.value:
+                # If remove node has no right child check local parent.
+                if curr.right is None:
+                    # If no local parent, then set root to the curr node's left
+                    if parent is None:
                         self.root = curr.left
-                    else: # Otherwise, there is a local parent and we compare its values.
-                        if curr.value < parent.value: # If current is less than parent, then point parent's left child to current's left child.
+                    # Otherwise, local parent exists and we compare its values.
+                    else:
+                        # If current is less than parent, then set parent's
+                        # left child to current's left child.
+                        if curr.value < parent.value:
                             parent.left = curr.left
-                        elif curr.value > parent.value: # If current is greater than parent, then point parent's right child to current's left child.
+                        # If current is greater than parent, then set parent's
+                        # right child to current's left child.
+                        elif curr.value > parent.value:
                             parent.right = curr.left
-                elif curr.right.left == None: # If remove node has right child, but the right child has no left child, check local parent.
-                    if parent == None: # If no local parent set, then set root to the curr node's left child.
+                # If remove node has right child, but the right child has no
+                # left child, check local parent.
+                elif curr.right.left is None:
+                    # If no local parent then set root to the curr node's left.
+                    if parent is None:
                         self.root = curr.left
-                    else: # Otherwise, there is a local parent and we compare its values.
+                    # Otherwise, local parent exists and we compare its values.
+                    else:
                         curr.right.left = curr.left
-                        if curr.value < parent.value: # If current is less than parent, then point parent's left child to the current's right child.
+                        # If current is less than parent, then point parent's
+                        # left child to the current's right child.
+                        if curr.value < parent.value:
                             parent.left = curr.right
-                        elif curr.value > parent.value: # If current is greater than parent, then point parents right child to the current's right child.
+                        # If current is greater than parent, then point parents
+                        # right child to the current's right child.
+                        elif curr.value > parent.value:
                             parent.right = curr.right
-                else: # If remove node has right and left child, then we find the right child's left most child.
+                # If remove node has right and left child, then we find the
+                # right child's left most child.
+                else:
                     lm = curr.right.left  # left-most
                     lmp = curr.right  # left-most-parent
                     while lm.left:
                         lmp = lm
                         lm = lm.left
-                        # Point left-most-parent's left subtree to the left-most's right subtree
+                    # Point left-most-parent's left subtree to the left-most's
+                    # right subtree
                     lmp.left = lm.right
                     lm.left = curr.left
                     lm.right = curr.right
-                    if parent == None: # If local parent is not set then set root to left-most.
+                    # If local parent is not set then set root to left-most.
+                    if parent is None:
                         self.root = lm
-                    else: # Otherwise, there is a local parent and we compare its values.
-                        if curr.value < parent.value: # If current is less than parent, then point parent's left child to the left-most child.
+                    # Otherwise, local parent exists and we compare its values.
+                    else:
+                        # If current is less than parent, then point parent's
+                        # left child to the left-most child.
+                        if curr.value < parent.value:
                             parent.left = lm
-                        elif curr.value > parent.value: # If current is greater than parent, then point parent's right child to the left-most child.
+                        # If current is greater than parent, then point
+                        # parent's right child to the left-most child.
+                        elif curr.value > parent.value:
                             parent.right = lm
                 return True
-            elif v < curr.value: # Value is less than current, move left.
+            # Value is less than current, move left.
+            elif v < curr.value:
                 parent = curr
                 curr = curr.left
-            else: # Value is greater than current, move right.
+            # Value is greater than current, move right.
+            else:
                 parent = curr
                 curr = curr.right
 
@@ -173,8 +202,10 @@ class BST:
     def traverse(self):
         def _tr(n, r):
             r.append(n.value)
-            if n.left: _tr(n.left, r)
-            if n.right: _tr(n.right, r)
+            if n.left:
+                _tr(n.left, r)
+            if n.right:
+                _tr(n.right, r)
         result = []
         _tr(self.root, result)
         print(f'Traversed: {result}')
@@ -185,6 +216,7 @@ def _et(start_time, tr=7):
     end_time = round(time.time()-start_time, tr)
     start_time = time.time()
     return end_time
+
 
 # Main
 def main():

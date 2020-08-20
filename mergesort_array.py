@@ -4,22 +4,24 @@ import time
 
 # Recursive Mergsort with Iterative Merge
 def merge_sort(a):
-    if len(a) == 1: return a
+    if len(a) == 1:
+        return a
     mid = int(len(a) / 2)
     # Split Array in into right and left
     return merge(merge_sort(a[:mid]), merge_sort(a[mid:]))
 
+
 # Iterative Merge
-def merge(l, r):
+def merge(L, R):
     merged, i, j = [], 0, 0
-    while i < len(l) and j < len(r):
-        if l[i] < r[j]:
-            merged.append(l[i])
+    while i < len(L) and j < len(R):
+        if L[i] < R[j]:
+            merged.append(L[i])
             i += 1
         else:
-            merged.append(r[j])
+            merged.append(R[j])
             j += 1
-    return merged + l[i:] + r[j:]
+    return merged + L[i:] + R[j:]
 
 
 # Main
@@ -29,6 +31,7 @@ def main():
     start = time.time()
     print(f'Merge Sort: {merge_sort(nums_arr)}')
     print(f'Took [{time.time()-start}s]')
+
 
 # Call main()
 if __name__ == '__main__':
