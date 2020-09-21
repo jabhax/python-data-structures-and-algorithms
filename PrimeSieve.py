@@ -20,10 +20,10 @@ def prime_sieve(n: int) -> list:
     return sieve
 
 def main():
-    n = 25
+    n = 100
     sieve = prime_sieve(n)
     print(f'n: { n }')
-    print(f'sieve: { sieve }')
+    # print(f'sieve: { sieve }')
     print(f'binary_sieve: { convert_to_binary(sieve) }')
     print(f'count_primes: { count_primes(n) }')
 
