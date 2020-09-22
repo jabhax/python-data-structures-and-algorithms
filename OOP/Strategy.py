@@ -1,3 +1,13 @@
+# Design Patterns
+
+'''
+The Strategy Pattern is a type of behavioral pattern. The main goal of Strategy
+Pattern is to enable client to choose from different algorithms or procedures
+to complete the specified task. Different algorithms can be swapped in and out
+without any complications for the mentioned task. And this pattern can be used
+to improve flexibility when external resources are accessed.
+'''
+
 import types
 
 

@@ -1,3 +1,13 @@
+# Design Patterns
+
+'''
+A Template Pattern defines a basic algorithm in a base class using abstract
+operation where subclasses override the concrete behavior. It keeps the outline
+of the algorithm in a separate method. This method is referred as the template
+method. It defines the skeleton of algorithm in an operation and includes
+subclasses, which redefine certain steps of an algorithm.
+'''
+
 class MakeSomeThing:
     def prepare(self): pass
     def do_first(self): pass

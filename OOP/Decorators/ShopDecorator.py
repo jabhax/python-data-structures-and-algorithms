@@ -1,3 +1,14 @@
+# Design Patterns
+
+'''
+Decorator Pattern allows a user to add new functionality to an existing object
+without altering its structure. This pattern acts as a wrapper to existing
+class by creating a decorator class, which wraps the original class and
+provides additional functionality keeping the class methods signature intact.
+The motive of a decorator pattern is to attach additional responsibilities of
+an object dynamically.
+'''
+
 import six
 from abc import ABCMeta
 

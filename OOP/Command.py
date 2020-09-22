@@ -1,4 +1,16 @@
+# Design Patterns
+
+'''
+Command Pattern adds a level of abstraction between actions and includes an
+object, which invokes these such actions.
+'''
+
+
 class Command:
+    '''
+    Client creates a command object that includes a list of commands to be
+    executed. The command object created implements a specific interface.
+    '''
     def __init__(self, cmd, *args):
         self._cmd = cmd
         self._args = args
@@ -7,6 +19,7 @@ class Command:
         return self._cmd(*self._args + args)
 
 def demo(a, b, c):
+    ''' Demo command function '''
     print(f'a: {a}')
     print(f'b: {b}')
     print(f'c: {c}')

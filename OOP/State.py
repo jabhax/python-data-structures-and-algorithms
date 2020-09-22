@@ -1,3 +1,11 @@
+# Design Patterns
+
+'''
+The State Pattern provides a module for state machines, which are implemented
+using subclasses, derived from a specified state machine class. The methods are
+state independent and cause transitions declared using decorators, etc.
+'''
+
 class ComputerState():
     name, allowed = 'state', []
 

@@ -1,3 +1,12 @@
+# Design Patterns
+
+'''
+The Observer Pattern objects are represented as observers that wait for an
+event to trigger. An Observer attaches to the subject once a specified event
+occurs. When the event occurs, the subject tells the observers that it has
+occurred.
+'''
+
 import threading
 import time
 import pdb

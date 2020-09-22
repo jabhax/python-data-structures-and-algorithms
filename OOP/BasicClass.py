@@ -1,4 +1,6 @@
+# Design Patterns
 
+''' Instance, Class, and Static Methods '''
 
 class BasicClass:
     def instance_method(self):

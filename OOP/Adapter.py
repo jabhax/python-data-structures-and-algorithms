@@ -1,3 +1,20 @@
+# Design Patterns
+
+'''
+Adapter Pattern works as a bridge between two incompatible interfaces. This
+pattern involves a single class, which is responsible for joining the
+functionalities of Independent or Incompatible Interfaces. It converts the
+interface of a class into another interface based on some requirement. The
+pattern includes a polymorphism which names one name and multiple forms. Say
+for a shape class which can use as per the requirements gathered.
+
+Example:
+    A real life example could be the case of a card reader, which acts as an
+    adapter between memory card and a laptop. You plug in the memory card into
+    the card reader and the card reader into the laptop so that memory card can
+    be read via the laptop.
+'''
+
 class EUSocketInterface:
     def voltage(self): pass
     def is_live(self): pass
